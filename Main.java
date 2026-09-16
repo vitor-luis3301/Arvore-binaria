@@ -102,16 +102,16 @@ public class Tree {
     }
 
     Node successorParent = current;
-    Node successor = current.left; // Maior à esquerda
+    Node successor = current.right; // Menor à direita
     
-    while (successor.right != null) {
+    while (successor.left != null) {
       successorParent = successor;
-      successor = successor.right;
+      successor = successor.left;
     }
 
     current.value = successor.value;
 
-    replaceChild(successorParent, successor, successor.left);
+    replaceChild(successorParent, successor, successor.right);
   }
 }
 
